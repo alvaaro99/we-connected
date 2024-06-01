@@ -1,9 +1,13 @@
 from cryptography.fernet import Fernet
+from flask import current_app
 
-chiper_suite = Fernet('tqRu_aP1o9zOvDMD4dBoZhyUb92nTcT4U4nM2ml_p90=')
+def get_chiper_suite():
+    with current_app.app_context():
+        fernet_key = current_app.config.get('FERNET_KEY')
+        return Fernet(fernet_key)
 
 def encrypt_pass(password: str)->str:
-    return chiper_suite.encrypt(str.encode(password))
+    return get_chiper_suite().encrypt(str.encode(password))
 
 def decrypt_pass(password: str)->str:
-    return chiper_suite.decrypt(bytes(password)).decode()
+    return get_chiper_suite().decrypt(bytes(password)).decode()

@@ -9,7 +9,8 @@ def create_app(test_config=None):
     app.config.from_mapping(
         SECRET_KEY='dev',
         DATABASE=os.path.join(app.instance_path, 'flaskr.sqlite'),
-        JWT_SECRET_KEY = "jwt-secret123"
+        JWT_SECRET_KEY = "jwt-secret123",
+        FERNET_KEY='tqRu_aP1o9zOvDMD4dBoZhyUb92nTcT4U4nM2ml_p90='
     )
     
     JWTManager(app)
