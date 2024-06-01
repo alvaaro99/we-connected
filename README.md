@@ -10,10 +10,6 @@ un grafo y representarlo visualmente.
 
 -   [Descripción](#descripción)
 -   [Instalación](#instalación)
--   [Uso](#uso)
--   [Tests](#tests)
--   [Contribución](#contribución)
--   [Licencia](#licencia)
 
 ## Descripción
 
